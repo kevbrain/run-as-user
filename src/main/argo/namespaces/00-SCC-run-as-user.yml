@@ -33,7 +33,7 @@ supplementalGroups:
    - min: 61115
      max: 61115
 users:
-- system:serviceaccount:run-as-user-{{bil.environment}}:run-as-user-sa
+- system:serviceaccount:run-as-user-dev:run-as-user-sa
 volumes:
 - configMap
 - downwardAPI
