@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  namespace: {{ocp-namespace}}
+  namespace: run-as-user-dev
   name: run-as-user-sa
   labels:
     bil.com/ibm-user: 'ca12345'
