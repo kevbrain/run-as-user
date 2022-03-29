@@ -1,0 +1,44 @@
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: false
+allowedCapabilities: null
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+groups:
+- system:cluster-admins
+kind: SecurityContextConstraints
+metadata:
+  name: run-as-user-scc
+readOnlyRootFilesystem: false
+requiredDropCapabilities:
+- MKNOD
+fsGroup:
+  type: MustRunAs
+  ranges:
+  - min: 61115
+    max: 61115
+runAsUser:
+  type: MustRunAsRange
+  uidRangeMin: 61115
+  uidRangeMax: 61115
+seLinuxContext:
+  type: MustRunAs
+supplementalGroups:
+   type: MustRunAs
+   ranges:
+   - min: 61115
+     max: 61115
+users:
+- system:serviceaccount:run-as-user-{{bil.environment}}:run-as-user-sa
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- persistentVolumeClaim
+- projected
+- secret
+- nfs

@@ -1,0 +1,11 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: run-as-user-dev-trigger
+  namespace: run-as-user-dev
+spec:
+  serviceAccountName: pipeline
+  bindings:
+    - ref: run-as-user-dev-triggerbinding
+  template:
+    ref: run-as-user-dev-triggertemplate

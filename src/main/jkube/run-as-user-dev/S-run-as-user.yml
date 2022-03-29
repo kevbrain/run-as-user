@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: {{ocp-namespace}}
+  name: run-as-user-secret-0
+  labels:
+    app: run-as-user    
+stringData:  
+  actuator.password: {{actuator.password}}
+type: Opaque
+---
+ 

@@ -1,0 +1,9 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: run-as-user-dev-eventlistener
+  namespace: run-as-user-dev
+spec:
+  serviceAccountName: pipeline
+  triggers:
+    - triggerRef: run-as-user-dev-trigger
